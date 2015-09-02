@@ -1,0 +1,16 @@
+* Description
+  analyzer tcpdump command output,and show the time spend between HTTP request and response,also the support HTTP piplining request.
+* how to use
+  + Just download the py,and run
+#+BEGIN_SRC bash
+tcpdump -i wlp8s0 -nn -A -s0 port 80|python tcpdump.py
+#or
+cat tcpdump.pcap|python tcpdump.py
+#+END_SRC
+  .py output example
+#+BEGIN_SRC sh
+192.168.1.103.36316 > 66.6.43.22.80 23:29:18.511592 23:29:19.021903 510.311
+192.168.1.103.52268 > 54.192.158.142.80 23:29:19.612113 23:29:19.706261 94.148
+192.168.1.103.52254 > 54.192.158.142.80 23:29:19.634594 23:29:19.718248 83.654
+#source_ip:port > dest_ip:port request_start_time response_time time_spend
+#+END_SRC
